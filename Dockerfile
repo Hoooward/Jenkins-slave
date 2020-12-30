@@ -23,5 +23,6 @@ RUN apt-get update && \
     unzip -d /usr/lib/terraform-plugins/registry.terraform.io/hashicorp/aws/${AWS_PROVIDER_VERSION}/linux_amd64 /tmp/aws-provider.zip && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
+USER jenkins
 
 ENTRYPOINT ["jenkins-agent"]
