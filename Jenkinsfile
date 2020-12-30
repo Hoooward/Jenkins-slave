@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    label "slave"
+    label "jenkins-slave"
   }
   environment {
     dockerRepo = 'http://registry.cn-zhangjiakou.aliyuncs.com'
