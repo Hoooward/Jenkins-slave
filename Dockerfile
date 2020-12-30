@@ -1,4 +1,4 @@
-FROM jenkins/inbound-agent
+FROM jenkins/inbound-agent:4.3-4
 ARG DOCKER_VERSION=5:19.03.12~3-0~debian-buster
 ARG DC_VERSION=1.27.2
 ARG TERRAFORM_VERSION=0.13.5
@@ -22,5 +22,7 @@ RUN apt-get update && \
     mkdir -p /usr/lib/terraform-plugins/registry.terraform.io/hashicorp/aws/${AWS_PROVIDER_VERSION}/linux_amd64 && \
     unzip -d /usr/lib/terraform-plugins/registry.terraform.io/hashicorp/aws/${AWS_PROVIDER_VERSION}/linux_amd64 /tmp/aws-provider.zip && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    
+
 
 ENTRYPOINT ["jenkins-agent"]
