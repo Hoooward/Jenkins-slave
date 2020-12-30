@@ -9,6 +9,7 @@ ARG JENKINSUID
 ARG JENKINSGID
 ARG DOCKERGID
 
+USER root
 
 RUN apt-get update && \
     apt-get install -qq -y --no-install-recommends \
@@ -28,6 +29,7 @@ RUN apt-get update && \
     unzip -d /usr/lib/terraform-plugins/registry.terraform.io/hashicorp/aws/${AWS_PROVIDER_VERSION}/linux_amd64 /tmp/aws-provider.zip && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
    
+USER jenkins
 # Setup users and groups
 RUN groupadd -g ${JENKINSGID} jenkins
 RUN groupmod -g ${-GID} docker
