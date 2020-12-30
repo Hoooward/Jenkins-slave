@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent slave
   environment {
     dockerRepo = 'http://registry.cn-zhangjiakou.aliyuncs.com'
     dockerCreds = 'lzm-dockerhub-aliyun'
