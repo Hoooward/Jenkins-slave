@@ -13,10 +13,12 @@ pipeline {
       stage('Build Docker Image') {
         steps {
           script {
-            
+            container('docker') {
+              
             docker.withRegistry(dockerRepo, dockerCreds) {
               dockerImage = docker.build(dockerNamespace + '/' + dockerName + ':' + env.BRANCH_NAME, '--pull .')
               dockerImage.push()
+            }
             }
           }
         }
